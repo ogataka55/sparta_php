@@ -1,0 +1,6 @@
+CREATE DATABASE IF NOT EXISTS php_app;
+
+CREATE USER IF NOT EXISTS testuser
+    IDENTIFIED BY '9999';
+
+GRANT ALL ON php_app.* TO testuser;
