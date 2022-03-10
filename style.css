@@ -1,0 +1,296 @@
+@charset "utf-8";
+
+body{
+  color:#555;
+  font:12px verdana,"ヒラギノ丸ゴ ProN W4","Hiragino Maru Gothic ProN","メイリオ","Meiryo","ＭＳ Ｐゴシック","MS PGothic",Sans-Serif;
+  line-height:1.5;
+  background:#ececec;
+  -webkit-text-size-adjust:100%;
+}
+
+/* リンク設定
+------------------------------------------------------------*/
+a{color:#358de0;text-decoration:none;}
+a:hover{color:#429bef;}
+a:active, a:focus{outline:0;}
+
+
+/* 全体
+------------------------------------------------------------*/
+#wrapper{
+  margin:20px auto 0;
+  padding:0 1%;
+  width:98%;
+  position:relative;
+}
+
+.inner{
+  margin:0 auto;
+  width:100%;
+}
+
+
+/*************
+/* ヘッダー
+*************/
+#header{
+  z-index:100;
+  margin:20px 0 28px;
+}
+
+#header:after{
+  content:"";
+  display: block;   
+  clear:both; 
+  visibility:hidden;
+}
+
+#header .inner{
+  display: flex;   
+  justify-content: space-between;
+}
+
+/*************
+/* ロゴ
+*************/
+#header .logo{
+  padding:10px 0 0;
+}
+
+#header .logo2{
+  padding:20px 0 0;
+  clear:both;
+}
+
+#header .logo3{
+  padding:15px 0 0;
+  clear:both;
+}
+.logo a{
+  font-size:20px;
+  color:#444;
+  font-weight:bold;
+  line-height:1;
+}
+
+.logo2 a{
+  padding:3px 5px;
+  border-radius:3px;
+  font-size:15px;
+  color:#fff;
+  background:#28487c;
+  font-weight:bold;
+  line-height:1;
+}
+
+.logo3 input{
+  padding:3px 5px;
+  border-radius:3px;
+  font-size:15px;
+  color:#fff;
+  font-weight:bold;
+  background:rgb(184, 179, 179);
+}
+
+.search_msg{
+  text-align: center;
+  color: #444;
+  font-size:20px;
+}
+
+::placeholder {
+  color: #fff;
+}
+
+.logo2 a:hover{background:#ccc;}
+
+.logo3 input:hover{background:#777;}
+
+.logo span{
+  font-size:12px;
+  font-weight:normal;
+}
+
+.logo2 span{
+  font-size:12px;
+  font-weight:normal;
+}
+
+/**************************
+/* メイン画像（トップページ）
+**************************/
+#mainBanner{
+  margin:0 auto;
+  padding:0;
+  width:100%;
+  line-height:0;
+}
+
+#mainBanner .inner{position:relative;}
+
+#mainBanner img{
+  max-width:100%;
+  height:auto;
+}
+
+
+/**************************
+/* グリッド
+**************************/
+.gridWrapper{
+  padding-bottom:20px;
+  clear:both;
+  overflow:hidden;
+}
+
+#wrapper .gridWrapper{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.grid h3{
+  padding:13px 0;
+  margin-bottom:5px;
+  font-weight:bold;
+  border-top:1px solid #ccc;
+  border-bottom:1px solid #ccc;
+}
+
+.grid p{
+  text-align: center;
+  padding:5px 0;
+}
+
+.grid p.img{
+  float:left;
+  margin:3px 0 0 0;
+}
+
+.readmore{
+  clear:both;
+  margin-bottom: 20px;
+}
+
+.readmore a{
+  padding:3px 5px;
+  border-radius:3px;
+  color:#fff;
+  background:#999;
+}
+
+.readmore a:hover{background:#ccc;}
+
+
+/* フッター内のグリッド(3カラム) */
+#footer .grid{
+  border:0;
+  background:transparent;
+}
+
+#footer .grid p{padding:0;}
+
+/*************
+/* フッター
+*************/
+#footer{
+  clear:both;
+  padding:20px 0;
+  overflow:hidden;
+}
+
+#footer .inner p{
+  text-align:center;
+}
+
+/* PC用
+------------------------------------------------------------*/
+@media only screen and (min-width:960px){
+#wrapper,.inner{
+  width:940px;
+  padding:0;
+}
+
+#wrapper{padding-bottom:20px;}
+
+/* グリッド全体 */
+.gridWrapper{
+  display:table;
+  border-collapse:separate;
+  border-spacing:20px;
+  margin-left:-10px;
+  width:980px;
+}
+
+/* グリッド共通 ベース:トップページ4カラム */
+.grid{
+  width:220px;
+  display:table-cell;
+}
+}
+
+@media only screen and (max-width:959px){
+*{
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+         -o-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+#header h1{text-align:center;}
+
+#header .logo,#footer .logo{
+  float:none;
+  text-align:center;
+  padding:10px 5px;
+}
+
+.grid{
+  float:left;
+  width:48%;
+  margin:10px 2% 0 0;
+}
+
+.grid img{
+  float:left;
+  margin-right:5px;
+}
+
+#footer .grid, #footer .grid p{
+  float:none;
+  width:100%;
+  text-align:center;
+  border:0;
+}
+
+#footer .grid:last-child{padding-top:20px;}
+}
+
+@media only screen and (max-width:768px){
+  #header{padding-bottom:0;}
+#header h1{text-align:center;}
+
+#header .logo{
+  float:none;
+  text-align:center;
+  padding:10px 5px 20px;
+}
+}
+
+
+@media only screen and (max-width:640px){
+#footer .grid p{text-align:center;}
+
+.grid img{float:none;margin:20px auto 10px;max-width:100%;height:auto;}
+
+.grid p{text-align:left;}
+
+  .alignleft,.alignright{float:none;display:block;margin:0 auto 10px;}
+}
+
+
+@media only screen and (max-width:480px){
+#mainBanner h2,#mainBanner h3{font-size:80%;}
+
+}

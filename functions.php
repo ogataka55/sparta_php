@@ -28,3 +28,37 @@ function h($str)
     // ENT_QUOTES: シングルクオートとダブルクオートを共に変換する。
     return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
 }
+
+function search_validate($keywords)
+{
+    $errors = [];
+    if (empty($keywords)) {
+        $errors[] = MSG_KEYWORDS_REQUIRED;
+    }
+    return $errors;
+}
+
+function insert_validate($title, $thumbnail)
+{
+    $errors = [];
+    if (empty($title) || empty($thumbnail)) {
+        $errors[] = MSG_SEARCHBOOK_REQUIRED;
+    }
+    return $errors;
+}
+
+function insert_book($title, $thumbnail)
+{
+    $dbh = connect_db();
+    $sql = <<<EOM
+    INSERT INTO
+        books
+        (title, image_url)
+    VALUES
+        (:title, :image_url)
+    EOM;
+    $stmt = $dbh->prepare($sql);
+    $stmt->bindParam(':title', $title, PDO::PARAM_STR);
+    $stmt->bindParam(':image_url', $thumbnail, PDO::PARAM_STR);
+    $stmt->execute();
+}
