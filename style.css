@@ -63,7 +63,7 @@ a:active, a:focus{outline:0;}
 }
 
 #header .logo3{
-  padding:15px 0 0;
+  padding:10px 0 0;
   clear:both;
 }
 .logo a{
@@ -76,7 +76,7 @@ a:active, a:focus{outline:0;}
 .logo2 a{
   padding:3px 5px;
   border-radius:3px;
-  font-size:15px;
+  font-size:20px;
   color:#fff;
   background:#28487c;
   font-weight:bold;
@@ -86,10 +86,19 @@ a:active, a:focus{outline:0;}
 .logo3 input{
   padding:3px 5px;
   border-radius:3px;
-  font-size:15px;
-  color:#fff;
+  font-size:18px;
+  color:#696969;
   font-weight:bold;
-  background:rgb(184, 179, 179);
+  background:white;
+}
+
+.logo3 .btn{
+  padding:3px 5px;
+  border-radius:3px;
+  font-size:18px;
+  color:white;
+  font-weight:bold;
+  background:#008b8b;
 }
 
 .search_msg{
@@ -99,12 +108,14 @@ a:active, a:focus{outline:0;}
 }
 
 ::placeholder {
-  color: #fff;
+  color: #696969;
 }
 
-.logo2 a:hover{background:#ccc;}
+.logo2 a:hover{background:#b0c4de;}
 
-.logo3 input:hover{background:#777;}
+/* .logo3 input:hover{background:#777;} */
+
+.logo3 .btn:hover{background:#bed2c3;}
 
 .logo span{
   font-size:12px;
@@ -137,16 +148,29 @@ a:active, a:focus{outline:0;}
 /**************************
 /* グリッド
 **************************/
-.gridWrapper{
-  padding-bottom:20px;
-  clear:both;
-  overflow:hidden;
-}
-
-#wrapper .gridWrapper{
+#wrapper .gridWrapper, #wrapper .add_gridWrapper{
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
+  margin-top: 10px;
+}
+
+.gridWrapper, .add_gridWrapper{
+  padding-bottom:20px;
+  clear:both;
+  overflow:hidden;
+
+}
+.gridWrapper .grid {
+  margin-top:20px;
+}
+
+.add_gridWrapper form{
+  margin-top:30px;
+
+}
+.add_gridWrapper h3{
+  margin:20px auto 0;
 }
 
 .grid h3{
@@ -155,6 +179,7 @@ a:active, a:focus{outline:0;}
   font-weight:bold;
   border-top:1px solid #ccc;
   border-bottom:1px solid #ccc;
+  text-align: center;
 }
 
 .grid p{
@@ -163,13 +188,18 @@ a:active, a:focus{outline:0;}
 }
 
 .grid p.img{
-  float:left;
+  /* float:left; */
   margin:3px 0 0 0;
+}
+
+.img input:hover{
+  border: solid;
+  border-color: #ff6347;
 }
 
 .readmore{
   clear:both;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .readmore a{
@@ -181,6 +211,31 @@ a:active, a:focus{outline:0;}
 
 .readmore a:hover{background:#ccc;}
 
+.delete{
+  clear:both;
+  margin-bottom: 10px;
+  padding:3px 5px;
+  border-radius:3px;
+  color:#fff;
+  background:#dc143c;
+}
+
+.delete:hover{background:#ffb6c1;}
+
+p .view_up{
+  display: inline;
+}
+
+.view_up{
+  clear:both;
+  margin: 0 5px 10px 0;
+  padding:3px 5px;
+  border-radius:3px;
+  color:#fff;
+  background:#008b8b;
+}
+
+.view_up:hover{background:#bed2c3;}
 
 /* フッター内のグリッド(3カラム) */
 #footer .grid{
@@ -218,6 +273,14 @@ a:active, a:focus{outline:0;}
   display:table;
   border-collapse:separate;
   border-spacing:20px;
+  margin-left:-10px;
+  width:980px;
+}
+
+.add_gridWrapper{
+  display:table;
+  border-collapse:separate;
+  /* border-spacing:20px; */
   margin-left:-10px;
   width:980px;
 }

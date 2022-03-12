@@ -2,8 +2,9 @@
 require_once __DIR__ . '/functions.php';
 require_once __DIR__ . '/config.php';
 
-// 一覧表示
-$all_books = find_book_all();
+$id = filter_input(INPUT_GET, 'id');
+// 参照表示
+$id_book = find_book_one($id);
 
 ?>
 
@@ -17,9 +18,9 @@ $all_books = find_book_all();
             <div class="logo">
                 <a href="index.php" title="書籍・漫画管理アプリ" rel="home">書籍＆漫画管理アプリ<br /><span>Books and Comics Management</span></a>
             </div>
-            <div class="logo2">
+            <!-- <div class="logo2">
                 <a href="add.php" title="書籍・漫画管理アプリ" rel="home">検索・登録</a>
-            </div>
+            </div> -->
         </div>
     </header>
 
@@ -29,25 +30,20 @@ $all_books = find_book_all();
         </div>
     </div>
 
-    <?php if ($all_books) : ?>
+    <?php if ($id_book) : ?>
         <div id="wrapper">
             <section class="gridWrapper">
-                <?php foreach ($all_books as $one_book) : ?>
                     <div class="grid">
                         <div class="box">
-                            <h3>『<?= h($one_book['title']) ?>』<br><small><?= h($one_book['title']) ?></small></h3>
-                            <p class="img"><img src="<?= h($one_book['image_url']) ?>" alt="<?= h($one_book['title']) ?>"></p>
-                            <p>
-                            <a class="view_up" href="delete.php?id=<?= h($one_book['id']) ?>">詳細</a>
-                            <a class="delete" href="delete.php?id=<?= h($one_book['id']) ?>">削除</a>
-                            </p>
+                            <h3><?= h($id_book) ?></h3>
+                            <p class="view_up"><a href="view_up.php?id=<?= h($one_book['id']) ?>">詳細</a></p>
+                            <p class="delete"><a href="delete.php?id=<?= h($one_book['id']) ?>">削除</a></p>
                         </div>
                     </div>
-                <?php endforeach; ?>
             </section>
         </div>
     <?php else : ?>
-        <h3 class="search_msg">登録されている書籍・漫画はありません</h3>
+        <h3 class="search_msg">参照する書籍・漫画が見つかりません</h3>
     <?php endif; ?>
 
     <!-- <div id="wrapper">
