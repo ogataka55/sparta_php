@@ -2,8 +2,9 @@
 require_once __DIR__ . '/functions.php';
 require_once __DIR__ . '/config.php';
 
-// 一覧表示
-$all_books = find_book_all();
+$id = filter_input(INPUT_GET, 'id');
+// 参照表示
+$id_book = find_book_one($id);
 
 ?>
 
@@ -30,22 +31,26 @@ $all_books = find_book_all();
             </div>
         </div>
 
-        <?php if ($all_books) : ?>
-            <div id="wrapper">
-                <section class="gridWrapper">
-                    <?php foreach ($all_books as $one_book) : ?>
-                        <div class="grid">
-                            <div class="box">
-                                <h3>『<?= h($one_book['title']) ?>』<br><small><?= h($one_book['authors']) ?></small></h3>
-                                <p class="img"><a class="" href="view.php?id=<?= h($one_book['id']) ?>">
-                                        <img src="<?= h($one_book['image_url']) ?>" alt="<?= h($one_book['title']) ?>"></a></p>
-                            </div>
+        <?php if ($id_book) : ?>
+            <div id="wrapper" class="view">
+                <section class="gridWrapper2">
+                    <div class="grid">
+                        <div class="box">
+                            <h3>『<?= h($id_book['title']) ?>』<br><small><?= h($id_book['authors']) ?></small></h3>
+                            <p class="img"><a class="" href="index.php"><img class="view_img" src="<?= h($id_book['image_url']) ?>" alt="<?= h($id_book['title']) ?>"></a></p>
+                            <h3>memo<br>
+                                <p class="text"><?= h($id_book['memo']) ?></p>
+                            </h3>
+                            <p>
+                                <a class="edit" href="edit.php?id=<?= h($id_book['id']) ?>">編集</a>
+                                <!-- <a class="index" href="index.php">戻る</a> -->
+                            </p>
                         </div>
-                    <?php endforeach; ?>
+                    </div>
                 </section>
             </div>
         <?php else : ?>
-            <h3 class="search_msg">登録されている書籍・漫画はありません</h3>
+            <h3 class="search_msg">参照する書籍・漫画が見つかりません</h3>
         <?php endif; ?>
 
         <!-- <div id="wrapper">
@@ -91,13 +96,13 @@ $all_books = find_book_all();
                 </div>
             </article>
         </section> -->
+
         <footer id="footer">
             <div class="inner">
                 <p class="logo"><a href="index.html" title="sparta camp php" rel="home">Sparta Camp ~PHP~<br /><span>@Hiraizumi</span></a></p>
             </div>
         </footer>
     </div>
-
 
 </body>
 

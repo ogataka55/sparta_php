@@ -51,7 +51,7 @@ function find_book_one($id)
     SELECT
         *
     FROM
-        tasks
+        books
     WHERE
         id = :id
     EOM;
@@ -79,20 +79,56 @@ function insert_validate($book)
     return $errors;
 }
 
+function update_validate($title, $memo)
+{
+    $errors = [];
+    if (empty($title)) {
+        $errors[] = MSG_TITLE_REQUIRED;
+    }
+    if (empty($memo)) {
+        $errors[] = MSG_MEMO_REQUIRED;
+    }
+    return $errors;
+}
+
 function insert_book($book)
 {
     $dbh = connect_db();
     $sql = <<<EOM
     INSERT INTO
         books
-        (title, image_url)
+        (title, image_url, authors)
     VALUES
-        (:title, :image_url)
+        (:title, :image_url, :authors)
     EOM;
     $stmt = $dbh->prepare($sql);
     $stmt->bindParam(':title', $book[0], PDO::PARAM_STR);
     $stmt->bindParam(':image_url', $book[1], PDO::PARAM_STR);
+    $stmt->bindParam(':authors', $book[2], PDO::PARAM_STR);
     $stmt->execute();
+}
+
+function update_book($id, $title, $memo)
+{
+    try {
+        $dbh = connect_db();
+        $sql = <<<EOM
+        UPDATE
+            books
+        SET
+            title = :title,
+            memo = :memo
+        WHERE
+            id = :id
+        EOM;
+        $stmt = $dbh->prepare($sql);
+        $stmt->bindParam(':title', $title, PDO::PARAM_STR);
+        $stmt->bindParam(':memo', $memo, PDO::PARAM_STR);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+    } catch (\PDOException $e) {
+        echo '更新に失敗しました';
+    }
 }
 
 function delete_book($id)
