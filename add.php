@@ -108,25 +108,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php else : ?>
             <h3 class="search_msg">右上の検索欄にワードを入れて検索して下さい！</h3>
         <?php endif; ?>
-
-        <!-- <div id="mainBanner">
-            <div class="inner">
-                <img src="images/banners/pexels-ylanite-koppens-104431733.jpg" width="940" height="300" alt="ホームページサンプル株式会社のサイトです">
-        </div>
-        
-        <div id="wrapper">
-            <section class="gridWrapper">
-                <article class="grid">
-                    <div class="box">
-                    <h3>ホームページサンプル</h3>
-                    <p class="img"><img width="220" height="220" src="images/banners/eyecatch1.jpg" alt="" /></p>
-                    <p>ホームページサンプル株式取り組み ホームページサンプル株式会社と自然との調和を目指。 &#8230;</p>
-                    <p class="readmore"><a href="sample.html">詳細を確認する</a></p>
-                </div>
-            </article>
-        </section>
-    </div> -->
-    
+            
         <footer id="footer">
             <div class="inner">
                 <p class="logo"><a href="index.html" title="sparta camp php" rel="home">Sparta Camp ~PHP~<br /><span>@Hiraizumi</span></a></p>

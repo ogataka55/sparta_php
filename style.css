@@ -216,6 +216,7 @@ h3 .text {
 .grid p.img {
   /* float:left; */
   margin: 3px 0 0 0;
+  padding: 10px 0;
 }
 
 .view .grid {
@@ -295,24 +296,6 @@ a img:hover {
   background: #ffb6c1;
 }
 
-/* p .view {
-  display: inline;
-}
-
-.view {
-  font-size: 18px;
-  clear: both;
-  margin: 0 5px 10px 0;
-  padding: 3px 5px;
-  border-radius: 3px;
-  color: #fff;
-  background: #008b8b;
-}
-
-.view:hover {
-  background: #bed2c3;
-} */
-
 .edit {
   font-size: 20px;
   clear: both;
@@ -341,7 +324,7 @@ a img:hover {
 /* フッター
 *************/
 .container {
-  padding-bottom: 100px;
+  padding-bottom: 90px;
   box-sizing: border-box;
 }
 
@@ -350,7 +333,7 @@ a img:hover {
   position: fixed;
   bottom: 0;
   clear: both;
-  padding: 20px 0;
+  padding: 10px 0;
   overflow: hidden;
   background-color: #ececec;
 }
@@ -358,12 +341,6 @@ a img:hover {
 #footer .inner p {
   text-align: center;
 }
-
-
-/* footer {
-      position: fixed;
-      bottom: 0;
-} */
 
 /* PC用
 ------------------------------------------------------------*/

@@ -8,7 +8,6 @@ GRANT ALL ON php_app.* TO testuser;
 CREATE TABLE IF NOT EXISTS books (
     id INT PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(255) NOT NULL,
-    -- sub_title VARCHAR(255),
     authors VARCHAR(50),
     image_url VARCHAR(255) NOT NULL,
     memo TEXT DEFAULT '-',
